@@ -1,0 +1,29 @@
+/* ====================================================
+【メディアクエリで使用するブレイクポイントを指定します。】
+　初期値はモバイルファーストになっています。
+　使いやすい形でメディアクエリを指定してください。
+==================================================== */
+$breakpoints: (
+  sp: "screen and (max-width: 430px)",
+  tablet: "screen and (min-width: 768px)",
+  pc: "screen and (min-width: 1024px)",
+);
+
+/* ====================================================
+【色設定】
+==================================================== */
+$colors: (
+  black: #333,
+  white: #fff,
+  gray: #ccc,
+);
+
+/* ====================================================
+【サイト全体の設定】
+==================================================== */
+$defaultFontFamily: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$defaultFontWeight: normal;
+$defaultFontSize: 18px;
+$defaultLineHeight: 1.8;
+
+$webfont: "Noto Sans JP", sans-serif;

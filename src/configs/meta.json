@@ -1,0 +1,16 @@
+{
+  "/about/index.html": {
+    "pageTitle": "会社概要",
+    "description": "会社概要ページの説明文です。",
+    "ogp": {
+      "type": "article",
+      "image": "/images/ogp.jpg"
+    },
+    "twitter": {
+      "card": "summary"
+    }
+  },
+  "/about/enkaku.html": {
+    "pageTitle": "会社の沿革ページ"
+  }
+}

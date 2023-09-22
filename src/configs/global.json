@@ -1,0 +1,39 @@
+{
+  "site": {
+    "name": "サンプルサイト",
+    "name_separate": " | ",
+    "domain": "example.com",
+    "favicon": "/favicon.svg",
+    "description": "サンプルサイトの説明文です。",
+    "ogp": {
+      "type": "website",
+      "image": "/ogp.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "username": "@example"
+    }
+  },
+  "js": {
+    "jQuery": true,
+    "jQueryEasing": true,
+    "gsap": false
+  },
+  "image": {
+    "optimization": {
+      "png": {
+        "quality": 80
+      },
+      "jpeg": {
+        "quality": 80
+      },
+      "jpg": {
+        "quality": 80
+      },
+      "webp": {
+        "quality": 80,
+        "lossless": true
+      }
+    }
+  }
+}

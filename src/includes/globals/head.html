@@ -1,0 +1,71 @@
+<meta charset="UTF-8" />
+{{>webfonts}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- サイトタイトル -->
+{{#if page.pageTitle}}
+<title>{{page.pageTitle}}{{site.name_separate}}{{site.name}}</title>
+{{else}}
+<title>{{site.name}}</title>
+{{/if}}
+
+<!-- meta description -->
+{{#if page.description}}
+<meta name="description" content="{{page.description}}" />
+{{else}}
+<meta name="description" content="{{description}}" />
+{{/if}}
+
+<!-- link favicon -->
+{{#if site.favicon}}
+<link rel="icon" href="{{site.favicon}}" />
+{{/if}}
+
+<!-- カノニカルタグ -->
+<link rel="canonical" href="https://{{site.domain}}{{pagePath}}" />
+
+<!-- OGP title -->
+{{#if page.pageTitle}}
+<meta property="og:title" content="{{page.pageTitle}}{{site.name_separate}}{{site.name}}" />
+{{else}}
+<meta property="og:title" content="{{site.name}}" />
+{{/if}}
+
+<!-- OGP description -->
+{{#if page.description}}
+<meta property="og:description" content="{{page.description}}" />
+{{else}}
+<meta property="og:description" content="{{site.description}}" />
+{{/if}}
+
+<!-- OGP URL -->
+<meta property="og:url" content="https://{{site.domain}}{{pagePath}}" />
+
+<!-- OGP image -->
+{{#if page.ogp.image}}
+<meta property="og:image" content="{{page.ogp.image}}" />
+{{else if site.ogp.image}}
+<meta property="og:image" content="{{site.ogp.image}}" />
+{{/if}}
+
+<!-- OGP site_name -->
+<meta property="og:site_name" content="{{site.name}}" />
+
+<!-- OGP locale -->
+<meta property="og:locale" content="ja_JP" />
+
+<!-- Twitter card -->
+{{#if page.twitter.card}}
+<meta name="twitter:card" content="{{page.twitter.card}}" />
+{{else if site.ogp.type}}
+<meta name="twitter:card" content="{{site.ogp.type}}" />
+{{/if}}
+
+<!-- Twitter site -->
+{{#if site.twitter.username}}
+<meta name="twitter:site" content="{{site.twitter.username}}" />
+{{/if}}
+
+<link rel="stylesheet" href="/app.scss" />
+{{>scripts}}
+<script type="module" src="/app.js"></script>

@@ -1,0 +1,17 @@
+name: Remove old artifacts
+
+on:
+  schedule:
+    # 毎週日曜日の午前0時に自動実行
+    - cron: "0 0 * * 0"
+
+jobs:
+  remove-old-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 保存から 7日以前のArtifacts を削除しています
+        uses: c-hive/gha-remove-artifacts@v1
+        with:
+          age: "7 days" # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js

@@ -1,0 +1,50 @@
+name: deploy to production
+
+on:
+  push:
+    branches: ["release-*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト中...
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: Nodeを準備しています
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+      - name: ビルドを実行しています
+        run: npm install && npm run production
+      - name: dist ディレクトリを Artifacts に保存中...
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: dist ディレクトリを Artifacts から取得中...
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - name: SSHキーを生成しています
+        run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: サーバーにデプロイをしています
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          switches: -avz
+          path: dist/
+          remote_path: ${{ secrets.PATH }}
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ secrets.USER }}
+          remote_port: ${{ secrets.PORT }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_key_pass: ${{ secrets.PASS }}

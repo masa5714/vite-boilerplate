@@ -1,0 +1,45 @@
+/* ====================================================
+ メディアクエリ
+==================================================== */
+@use "@/env";
+
+@mixin mq($device) {
+  @media #{map-get(env.$breakpoints, $device)} {
+    @content;
+  }
+}
+
+/* ====================================================
+ フォントの設定
+==================================================== */
+@mixin fontJP($weight) {
+  font-family: env.$fontFamilyJP;
+  @if $weight == regular {
+    font-weight: 400;
+  }
+  @if $weight == medium {
+    font-weight: 500;
+  }
+  @if $weight == bold {
+    font-weight: 700;
+  }
+  @if $weight == black {
+    font-weight: 900;
+  }
+}
+
+@mixin fontEN($weight) {
+  font-family: env.$fontFamilyEN;
+  @if $weight == regular {
+    font-weight: 400;
+  }
+  @if $weight == medium {
+    font-weight: 500;
+  }
+  @if $weight == bold {
+    font-weight: 700;
+  }
+  @if $weight == black {
+    font-weight: 900;
+  }
+}

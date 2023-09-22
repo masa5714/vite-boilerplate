@@ -1,0 +1,52 @@
+@use "./../globals/" as *;
+
+body {
+  font-family: $webfont;
+  font-size: $defaultFontSize;
+  line-height: $defaultLineHeight;
+  font-weight: $defaultFontWeight;
+  color: #{map-get($colors, black)};
+}
+
+// Safari対策
+a[href^="tel"] {
+  text-decoration: none;
+}
+
+@include mq(sp) {
+  [data-device="pc"] {
+    display: none !important;
+  }
+}
+@include mq(pc) {
+  [data-device="sp"] {
+    display: none !important;
+  }
+}
+
+a {
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+// SVGスプライトのためのスタイル
+.use-sprite {
+  position: absolute;
+  height: 0;
+  & > svg {
+    display: block;
+    height: 0;
+  }
+}

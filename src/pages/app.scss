@@ -1,0 +1,10 @@
+@use "@/globals/" as *;
+
+// 全ページで適用されるスタイル
+@use "@/globals/base";
+@use "@/components";
+@use "@/utils";
+@use "@/layouts";
+
+// 各ページ専用のスタイル
+@use "@/pages";

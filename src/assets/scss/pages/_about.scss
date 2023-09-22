@@ -1,0 +1,7 @@
+@use "./../globals/" as *;
+
+body.page-about {
+  // aboutページ専用のスタイルを記述
+  display: block;
+  transition: all 0.2s $easeOutExpo;
+}
