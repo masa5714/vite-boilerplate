@@ -196,7 +196,7 @@ HTML 周辺の使い方や書き方、注意点など。
 - `src/includes/components`
 - `src/includes/modules`
 
-この中に格納した HTML ファイル（例： header.html）は `pages` の HTML にて下記のように呼び出すことができます。
+この中に格納した HTML ファイル（例： header.html）は HTML にて下記のように呼び出すことができます。
 
 ```html
 {{>header}}
